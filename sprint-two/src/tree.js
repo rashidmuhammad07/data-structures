@@ -1,21 +1,20 @@
 var Tree = function(value) {
-  var newTree = {};
+  var newTree = Object.create(treeMethods);
+  
   newTree.value = value;
-
-  // your code here
-  newTree.children = null;  // fix me
-
+  newTree.children = [];
   return newTree;
 };
 
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
+  var node = new Tree();
+  
+  node.value = value;
+  node.children = [];
+  this.children.push(node);
 };
-
-treeMethods.contains = function(target) {
-};
-
 
 
 /*
