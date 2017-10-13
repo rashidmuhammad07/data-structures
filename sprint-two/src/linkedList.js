@@ -11,7 +11,6 @@ var LinkedList = function() {
     } else {
       list.tail.next = Node(value);
       list.tail = list.tail.next;
-      // list.tail.next =  Node(value);
     }
   };
   

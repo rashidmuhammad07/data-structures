@@ -3,20 +3,25 @@ var Tree = function(value) {
   
   newTree.value = value;
   newTree.children = [];
+
   return newTree;
 };
 
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  var node = new Tree();
-  
-  node.value = value;
-  node.children = [];
-  this.children.push(node);
+	this.children.push(Tree(value));
 };
+// O(1)
 
-
-/*
- * Complexity: What is the time complexity of the above functions?
- */
+treeMethods.contains = function(target) {
+  var flag = false;
+  if (this.value === target) flag = true;
+  for (var i = 0; i < this.children.length; i++) {
+    if (this.children[i].contains(target)) {
+      flag = true;
+    }
+  }
+  return flag;
+};
+// O(1) || O(n2)
